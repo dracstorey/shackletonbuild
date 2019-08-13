@@ -13,12 +13,15 @@
     <script>
       function login ()
       {
-        username = document.getElementById('username').value;
-        password = document.getElementById('password').value;
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
 
         if (username === 'user' && password === 'pass') 
         {
-          ons.notification.alert('Successful!');
+          //ons.notification.alert('Successful!');
+          // call the navigator to move to the new page
+          var navigator = document.getElementById('navigator');
+          navigator.resetToPage('shackleton.html');
         } 
         else 
         {
@@ -28,6 +31,7 @@
     </script>
 </head>
 <body>
+  <ons-navigator id="navigator">
   <ons-page>
   <div style="text-align: center; margin-top: 200px">
   <p>
@@ -50,7 +54,11 @@
   </div>
 
   </ons-page>
+</ons-navigator>
 
+
+<template id="shackleton.html">
+  <ons-page id="shackleton">
 
 <h2>Ernest Shackleton (1874 - 1922) </h2>
 <img src="images/shackletonicon.jpg" alt="Ernest Shackleton at Dulwich College"/>  
@@ -59,5 +67,8 @@
 <p>He was one of the principal figures of the period known as the Heroic Age of Antartic Exploration. Educated at Dulwich College and having ignored his father's wishes that he become a doctor he joined the merchant navy. Of many quotes one of his most famous is,  "Difficulties are just things to overcome, after all."</p>
 
 <p>During his life he made three trips to the Antarctic. As well as climbing Mount Erebus he made many important scientific discoveries. On his fourth expedition to circumnavigate the Antartic he died of a heart attack. He was buried on the Island of South Georgia. </p>  
+</template>
+</ons-page>
+ 
 </body>
 </html>
