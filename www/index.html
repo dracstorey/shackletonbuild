@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    
     <script>
 
       function quiz()
@@ -17,57 +18,19 @@
         var navigator = document.getElementById('navigator');
         navigator.pushPage('quiz.html');
       }
-      function login ()
-      {
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-
-        if (username === 'user' && password === 'pass') 
-        {
-          //ons.notification.alert('Successful!');
-          // call the navigator to move to the new page
-          var navigator = document.getElementById('navigator');
-          navigator.resetToPage('shackleton.html');
-        } 
-        else 
-        {
-          ons.notification.alert('Incorrect credentials');
-        }
-      }
+      
     </script>
 </head>
 <body>
-<ons-template id="login.html">
-<ons-page>
-<div style="text-align: center; margin-top: 200px">
-
-  <p>
-    <ons-input id="username" placeholder="Username" modifier="underbar"></ons-input>
-  </p>
-
-  <p>
-    <ons-input
-      id="password"
-      placeholder="Password"
-      type="password"
-      modifier="underbar"
-    >
-    </ons-input>
-  </p>
-
-  <p>
-    <ons-button onClick="login()">Sign in</ons-button>
-  </p>
-
-  </div>
-  </ons-page>
-  </ons-template>
-
 
   <ons-navigator id="navigator">
   <ons-page id="shackleton">
   <ons-toolbar id="home-toolbar">
-    <div class="left">Home</div>
+    <div class="left">
+      <ons-toolbar-button onclick="openMenu()">
+        <ons-icon icon="md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>
      <div class="center" onClick="quiz()">Quiz</div>
   </ons-toolbar>
 <h2>Ernest Shackleton (1874 - 1922) </h2>
@@ -78,7 +41,6 @@
 
 <p>During his life he made three trips to the Antarctic. As well as climbing Mount Erebus he made many important scientific discoveries. On his fourth expedition to circumnavigate the Antartic he died of a heart attack. He was buried on the Island of South Georgia. </p>  
 </ons-page>
-
 </ons-navigator>
 
 
