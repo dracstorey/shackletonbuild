@@ -7,10 +7,39 @@
     localStorage.setItem("MyAppLocation", title);
   };
 
+function snapPicture () 
+ {
+   navigator.camera.getPicture(successCallback, FailCallback, {
+      quality: 50,
+      destinationType: Camera.DestinationType.FILE_URI,
+      allowEdit: false,
+      correctOrientation: true,
+      targetWidth: 600,
+      saveToPhotoAlbum: true
+    });
+  //Success Callback
+  function successCallback (imageURI)
+  {
+    //Display image
+    var image = document.getElementById ('myImage');
+    image.src = imageURI;
+    localStorage.setItem("MyAppPicture", imageURI);
+  }
+  //Error CallBack
+  function FailCallback (message) 
+  {
+    alert ('Error!!!: ' + message);
+  }
+};
 </script>
   <ons-list>
     <ons-list-header>Type in a name for your location</ons-list-header>
   <p> <ons-input id="loc_title" modifier="underbar" placeholder="Location Name" ></ons-input></p>
+  <ons-list-header>Add a live picture</ons-list-header>
+  <ons-button id = "cameraTakePicture" onClick = 'snapPicture()'>Click to snap</ons-button>
+ <p> <img id = "myImage" height="70px"></img><p>
+ <ons-list-header> Add a map reference</ons-list-header>
+ <ons-button id = "cameraTakePicture" onClick = 'snapPicture()'>Click for map</ons-button>
  <ons-list-header>Save the location</ons-list-header>
   <ons-button id = "Save details" onClick = 'save_details()'>Save</ons-button>
   </ons-list>
