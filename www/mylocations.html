@@ -1,0 +1,15 @@
+<ons-page id="mylocations.html">
+<script>
+function show_title()
+{
+  var title = localStorage.getItem("MyAppLocation");
+  document.getElementById('my_loc').innerHTML = title
+};
+</script>
+
+<h2 align='center'>My Locations</h2>
+<h3 id='my_loc'></h3>
+  <ons-button id = "Reveal Location" onClick = 'show_title()'>Refresh</ons-button>
+  <p><img id='test' height="70px"></p>
+</ons-page>
+

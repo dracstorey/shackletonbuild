@@ -1,3 +1,17 @@
 <ons-page id="addlocations.html">
-  <h3>Add a New Location</h3>
+<script>
+  function save_details ()
+  {
+    var title = document.getElementById('loc_title').value;
+    alert(title);
+    localStorage.setItem("MyAppLocation", title);
+  };
+
+</script>
+  <ons-list>
+    <ons-list-header>Type in a name for your location</ons-list-header>
+  <p> <ons-input id="loc_title" modifier="underbar" placeholder="Location Name" ></ons-input></p>
+ <ons-list-header>Save the location</ons-list-header>
+  <ons-button id = "Save details" onClick = 'save_details()'>Save</ons-button>
+  </ons-list>
 </ons-page>
